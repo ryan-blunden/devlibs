@@ -1,0 +1,10 @@
+[
+  {
+    "id": "1f214cb5-e42f-4761-8f75-9581212027fb",
+    "text": "Because I write all my code in {{lang}} and {{framework}}, my code is always {{adjective}} and makes me feel {{adjective}}."
+  },
+  {
+    "id": "d5430901-e107-48b8-a089-f427cc29e892",
+    "text": "{{methodology}} programming is the reason my code has {{number}} bugs and is so {{adjective}}."
+  }
+]
