@@ -14,11 +14,17 @@ No current app functionality exists, only a mocked front-end server (NGINX).
  
 The next step is to build out the backend server with database backed data.
 
-## Run server
+## Run a mock/static DevLibs API service
     
-    make mock-server
+    make api-run
+    
+## Run DevLibs terminal front-end
 
-## Consuming the mock API
+    make terminal-run
+
+**Note:** A work in progress. Right now, it just opens a Python interactive session.
+
+## Consuming the mock/static API
 
 The below examples use jQuery.
 
