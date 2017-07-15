@@ -52,3 +52,10 @@ These header `Authorization` and `X_CSRF_TOKEN` token aren't validated in the mo
         dataType: 'json',
         crossDomain: true
     });
+
+## Run the Angular project
+
+1. Make sure you have [NPM](https://www.npmjs.com/) installed.
+2. Navigate into the `client` directory and run `npm install`.
+4. Start the Angular server by running `ng serve`.
+5. Navigate to `http://localhost:4200` to see the project running.
