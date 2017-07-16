@@ -20,4 +20,9 @@ export class SentenceFormComponent implements OnInit {
         .subscribe(sentence => this.sentence = sentence);
     });
   }
+
+  submit(e) {
+    e.preventDefault();
+    console.log('submit');
+  }
 }

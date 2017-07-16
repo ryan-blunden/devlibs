@@ -1,12 +1,14 @@
 <a routerLink="/">Home</a>
 
 <div *ngIf="sentence">
-  <form>
+  <form (submit)="submit($event)">
     <div class="row">
       <div class="col-4">
         <div *ngFor="let word of sentence.words" class="form-group">
           <input type="text" [placeholder]="word" class="form-control">
         </div>
+
+        <input type="submit" value="Reveal" class="btn btn-primary">
       </div>
     </div>
   </form>
