@@ -7,12 +7,14 @@ import { DevLibsRoutingModule } from './app-routing.module';
 import { SentenceService } from './sentence.service';
 import { SentenceComponent } from './sentence/sentence.component';
 import { SentenceFormComponent } from './sentence-form/sentence-form.component';
+import { SentenceDisplayComponent } from './sentence-display/sentence-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SentenceComponent,
-    SentenceFormComponent
+    SentenceFormComponent,
+    SentenceDisplayComponent
   ],
   imports: [
     BrowserModule,
