@@ -1,5 +1,5 @@
 <div *ngIf="sentence">
   <div *ngFor="let word of sentence.words">
-    {{ word }}
+    <input type="text" [placeholder]="word">
   </div>
 </div>

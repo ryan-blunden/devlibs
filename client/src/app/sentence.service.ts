@@ -31,6 +31,9 @@ export class SentenceService {
 
     for (let sentence of originalSentences) {
       sentence.words = sentence.text.match(/{{.+?}}/g);
+      sentence.words = sentence.words.map(function(word) {
+        return word.replace(/[{}]/g, '');
+      });
       sentences.push(sentence);
     }
 
