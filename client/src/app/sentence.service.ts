@@ -27,16 +27,12 @@ export class SentenceService {
   }
 
   transformSentences(originalSentences) {
-    let sentences = [];
+    return originalSentences.map(sentence => {
+      sentence.words = sentence.text
+        .match(/{{.+?}}/g)
+        .map(word => word.replace(/[{}]/g, ''));
 
-    for (let sentence of originalSentences) {
-      sentence.words = sentence.text.match(/{{.+?}}/g);
-      sentence.words = sentence.words.map(function(word) {
-        return word.replace(/[{}]/g, '');
-      });
-      sentences.push(sentence);
-    }
-
-    return sentences;
+      return sentence;
+    });
   }
 }
