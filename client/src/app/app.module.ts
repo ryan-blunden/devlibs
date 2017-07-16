@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { DevLibsRoutingModule } from './app-routing.module';
 import { SentenceService } from './sentence.service';
 import { SentenceComponent } from './sentence/sentence.component';
 
@@ -13,7 +14,8 @@ import { SentenceComponent } from './sentence/sentence.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    DevLibsRoutingModule
   ],
   providers: [SentenceService],
   bootstrap: [AppComponent]
