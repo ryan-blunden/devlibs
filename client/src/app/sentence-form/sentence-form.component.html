@@ -4,8 +4,13 @@
   <form (submit)="onSubmit(sentenceForm, $event)" #sentenceForm>
     <div class="row">
       <div class="col-4">
+
         <div *ngFor="let word of sentence.words; let i = index" class="form-group">
-          <input type="text" class="form-control" [placeholder]="i + '. ' + word">
+          <input type="text"
+                 class="form-control"
+                 [name]="i + '.' + word"
+                 [placeholder]="i + '. ' + word"
+                 [(ngModel)]="model[i]">
         </div>
 
         <input type="submit" value="Reveal" class="btn btn-primary">

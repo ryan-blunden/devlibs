@@ -24,14 +24,9 @@ export class SentenceFormComponent implements OnInit {
   }
 
   onSubmit(sentenceForm, event) {
-    console.log(sentenceForm);
     event.preventDefault();
-    /*
     this.router.navigate([this.sentence.id], {
-      queryParams: {
-        lang: 'PHP'
-      }
+      queryParams: this.model
     });
-    */
   }
 }
