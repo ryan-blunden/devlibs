@@ -1,3 +1,5 @@
 <div *ngIf="sentence">
-  {{ sentence.text }}
+  <div>{{ sentence.text }}</div>
+
+  <a [routerLink]="['form']">Back to Form</a>
 </div>
