@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SentenceService } from '../sentence.service';
 
 @Component({
@@ -9,8 +9,10 @@ import { SentenceService } from '../sentence.service';
 })
 export class SentenceFormComponent implements OnInit {
   sentence: any;
+  model = {};
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private sentenceService: SentenceService) { }
 
   ngOnInit() {
@@ -21,8 +23,15 @@ export class SentenceFormComponent implements OnInit {
     });
   }
 
-  submit(e) {
-    e.preventDefault();
-    console.log('submit');
+  onSubmit(sentenceForm, event) {
+    console.log(sentenceForm);
+    event.preventDefault();
+    /*
+    this.router.navigate([this.sentence.id], {
+      queryParams: {
+        lang: 'PHP'
+      }
+    });
+    */
   }
 }
