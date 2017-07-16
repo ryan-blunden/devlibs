@@ -14,11 +14,15 @@ export class SentenceDisplayComponent implements OnInit {
               private sentenceService: SentenceService) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.sentenceService
-        .getSentence(params['id'])
-        .subscribe(sentence => this.sentence = sentence);
+    this.route.queryParams.subscribe(queryParams => {
+      this.route.params.subscribe(params => {
+        this.sentenceService
+          .getSentence(params['id'])
+          .subscribe(sentence => {
+            this.sentence = this.sentenceService
+              .interpolate(sentence, queryParams);
+          });
+      });
     });
   }
-
 }

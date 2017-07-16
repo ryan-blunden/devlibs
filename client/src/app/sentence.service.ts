@@ -35,4 +35,12 @@ export class SentenceService {
       return sentence;
     });
   }
+
+  interpolate(sentence, queryParams) {
+    for (let key in queryParams) {
+      sentence.text = sentence.text.replace(/{{.+?}}/, queryParams[key]);
+    }
+
+    return sentence;
+  }
 }
