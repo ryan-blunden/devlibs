@@ -1,7 +1,13 @@
 <a routerLink="/">Home</a>
 
 <div *ngIf="sentence">
-  <div *ngFor="let word of sentence.words">
-    <input type="text" [placeholder]="word">
-  </div>
+  <form>
+    <div class="row">
+      <div class="col-4">
+        <div *ngFor="let word of sentence.words" class="form-group">
+          <input type="text" [placeholder]="word" class="form-control">
+        </div>
+      </div>
+    </div>
+  </form>
 </div>
