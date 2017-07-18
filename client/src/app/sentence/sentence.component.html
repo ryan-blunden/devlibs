@@ -1,0 +1,8 @@
+<h2>Sentences</h2>
+
+<ul *ngFor="let sentence of sentences">
+  <li>
+    {{ sentence.text }}<br>
+    <a [routerLink]="[sentence.id, 'form']">Form</a>
+  </li>
+</ul>
