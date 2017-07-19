@@ -12,6 +12,23 @@ api-run: api-build
 
 
 ############
+#  CLIENT  #
+############
+
+##
+# An Angular client for the DevLibs server.
+##
+
+ANGULAR_IMAGE_NAME=devlibs-angular
+
+angular-build:
+	docker build --build-arg VERSION=8 -t $(ANGULAR_IMAGE_NAME):latest $(PWD)/client
+
+angular-run: angular-build
+	docker run --rm --init -it -p 4200:4200 -P $(ANGULAR_IMAGE_NAME) npm start
+
+
+############
 #  PYTHON  #
 ############
 
