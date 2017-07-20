@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+
+  web:
+    image: devlibs-angular:latest
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./api/data:/var/www/api/v1
+    command: npm start
+
+  api: 
+    image: devlibs-api:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./client:/usr/src/app
