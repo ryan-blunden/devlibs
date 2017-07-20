@@ -27,8 +27,8 @@ angular-build:
 angular-run: angular-build
 	docker run --rm --init -it -p 4200:4200 -P $(ANGULAR_IMAGE_NAME) ng serve --host 0.0.0.0
 
-angular-run-edit:
-	docker run --rm --init -it -p 4200:4200 -P -v $(PWD)/client:/usr/src/app $(ANGULAR_IMAGE_NAME) ng serve --host 0.0.0.0	
+angular-run-edit: 
+	docker run --rm --init -it -p 4200:4200 -P -v $(PWD)/client:/usr/src/app $(ANGULAR_IMAGE_NAME) bash -c 'npm install && ng serve --host 0.0.0.0'
 
 
 ############
