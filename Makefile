@@ -25,7 +25,10 @@ angular-build:
 	docker build --build-arg VERSION=8 -t $(ANGULAR_IMAGE_NAME):latest $(PWD)/client
 
 angular-run: angular-build
-	docker run --rm --init -it -p 4200:4200 -P $(ANGULAR_IMAGE_NAME) npm start
+	docker run --rm --init -it -p 4200:4200 -P $(ANGULAR_IMAGE_NAME) ng serve --host 0.0.0.0
+
+angular-run-edit:
+	docker run --rm --init -it -p 4200:4200 -P -v $(PWD)/client:/usr/src/app $(ANGULAR_IMAGE_NAME) ng serve --host 0.0.0.0	
 
 
 ############
