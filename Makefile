@@ -78,19 +78,3 @@ awscli-build: python-build
 awscli-run: awscli-build
 	docker run --rm -it -v $(PWD)/:/usr/src/app $(AWS_CLI_IMAGE_NAME):latest bash
 
-
-##############
-#  TERMINAL  #
-##############
-
-##
-# A simple terminal app, simply so we can deploy a multi-container Elastic Beanstalk application.
-##
-
-TERMINAL_IMAGE_NAME=devlibs-terminal
-
-terminal-build: python-build
-	docker build -t $(TERMINAL_IMAGE_NAME):latest $(PWD)/terminal
-
-terminal-run: terminal-build
-	docker run --rm -it $(TERMINAL_IMAGE_NAME):latest
