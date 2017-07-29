@@ -32,10 +32,13 @@ angular-build:
 	docker build --build-arg VERSION=8 -t $(ANGULAR_IMAGE_NAME):latest $(PWD)/client
 
 angular-run: angular-build
-	docker run --rm --init -it -p 4200:4200 -P $(ANGULAR_IMAGE_NAME) ng serve --host 0.0.0.0
+	docker run --rm --init -p 4200:4200 -P $(ANGULAR_IMAGE_NAME) ng serve --host 0.0.0.0
 
 angular-run-edit: 
-	docker run --rm --init -it -p 4200:4200 -P -v $(PWD)/client:/usr/src/app $(ANGULAR_IMAGE_NAME) bash -c 'npm install && ng serve --host 0.0.0.0'
+	docker run --rm --init -p 4200:4200 -P -v $(PWD)/client:/usr/src/app $(ANGULAR_IMAGE_NAME) bash -c 'npm install && ng serve --host 0.0.0.0'
+
+angular-build-prod:
+	docker run --rm -v $(PWD)/client:/usr/src/app $(ANGULAR_IMAGE_NAME) bash -c 'npm install && ng build --prod'
 
 
 ############
@@ -76,5 +79,4 @@ awscli-build: python-build
 	docker build -t $(AWS_CLI_IMAGE_NAME):latest $(PWD)/awscli
 
 awscli-run: awscli-build
-	docker run --rm -it -v $(PWD)/:/usr/src/app $(AWS_CLI_IMAGE_NAME):latest bash
-
+	docker run --rm -it -v $(PWD)/:/usr/src/app $(AWS_CLI_IMAGE_NAME):latest

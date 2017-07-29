@@ -21,9 +21,9 @@ ENV NODE_ENV development
 # Make for easy calling of node_modules binaries.
 ENV PATH ${APP_DIR}/node_modules/.bin:$PATH
 
-# Health-check for service
-# Credit: https://blog.newrelic.com/2016/08/24/docker-health-check-instruction/
-HEALTHCHECK CMD curl --fail http://localhost:$DEV_SERVER_PORT/ || exit 1
+# Healthcheck (need to expose `DEV_SERVER_PORT`
+ENV DEV_SERVER_PORT=$DEV_SERVER_PORT
+HEALTHCHECK CMD curl --fail http://localhost:${DEV_SERVER_PORT}/ || exit 1
 
 # Update, upgrade install dependencies
 RUN apt-get update -y && \
