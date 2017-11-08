@@ -18,7 +18,7 @@ api-run-dev: api-build
 	docker run --rm -v $(CURDIR)/api/data:/var/www/api/v1 -p 8080:80 $(API_IMAGE_NAME)
 
 api-run: api-build
-	docker run -d --name devlis_api -p 8080:80 --restart on-failure $(API_IMAGE_NAME)
+	docker run -d --name devlis_api -p 80:80 --restart on-failure $(API_IMAGE_NAME)
 
 
 ############
