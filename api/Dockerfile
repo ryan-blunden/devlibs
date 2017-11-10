@@ -1,7 +1,8 @@
 FROM nginx:1.13-alpine
 
 WORKDIR /var/www/
-HEALTHCHECK CMD curl --fail http://localhost/api/v1/health-check || exit 1
+
+HEALTHCHECK CMD curl --fail http://localhost/api/v1/health-check/ || exit 1
 
 RUN apk update && \
     apk upgrade && \
