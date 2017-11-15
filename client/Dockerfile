@@ -4,6 +4,8 @@ ARG VERSION=8
 
 FROM node:${VERSION}
 
+LABEL maintainer="Ryan Blunden <ryan.blunden@rabbitbird.com>"
+
 ENV TERM xterm-color
 ARG DEBIAN_FRONTEND=noninteractive
 

@@ -52,7 +52,7 @@ angular-build-prod: angular-build
 
 AWS_CLI_IMAGE_NAME=devlibs-awscli
 
-awscli-build: python-build
+awscli-build:
 	docker build --force-rm -t $(AWS_CLI_IMAGE_NAME):latest $(CURDIR)/awscli
 
 awscli-run: awscli-build

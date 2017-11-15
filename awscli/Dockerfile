@@ -1,5 +1,7 @@
 FROM python:3.6.3-slim
 
+LABEL maintainer="Ryan Blunden <ryan.blunden@rabbitbird.com>"
+
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y nano wget jq && \
