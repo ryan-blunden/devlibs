@@ -6,7 +6,7 @@ Inspired by the MadLibs game, this variant is for Developers.
 
 - Docker.
 - GNU Make (already on OSX, Linux)
-- Port `8080` on host.
+- Port `8080` and `4200` on host.
 
 ## Current status - mock NGINX server
 
@@ -16,13 +16,7 @@ The next step is to build out the backend server with database backed data.
 
 ## Run a mock/static DevLibs API service
     
-    make api-run
-    
-## Run DevLibs terminal front-end
-
-    make terminal-run
-
-**Note:** A work in progress. Right now, it just opens a Python interactive session.
+    make api-run-dev
 
 ## Consuming the mock/static API
 
@@ -55,7 +49,4 @@ These header `Authorization` and `X_CSRF_TOKEN` token aren't validated in the mo
 
 ## Run the Angular project
 
-1. Make sure you have [NPM](https://www.npmjs.com/) installed.
-2. Navigate into the `client` directory and run `npm install`.
-4. Start the Angular server by running `ng serve`.
-5. Navigate to `http://localhost:4200` to see the project running.
+    make angular-run-dev
