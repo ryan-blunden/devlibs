@@ -37,10 +37,10 @@ angular-build:
 angular-run: angular-build
 	docker run --rm --init -p 4200:4200 -P $(ANGULAR_IMAGE_NAME):latest ng serve --host 0.0.0.0
 
-angular-run-dev:
+angular-run-dev: angular-build
 	docker run --rm --init -p 4200:4200 -P -v $(CURDIR)/client:/usr/src/app $(ANGULAR_IMAGE_NAME):latest bash -c 'npm install && ng serve --host 0.0.0.0'
 
-angular-build-prod:
+angular-build-prod: angular-build
 	docker run --rm -v $(CURDIR)/client:/usr/src/app $(ANGULAR_IMAGE_NAME):latest bash -c 'npm install && ng build --prod'
 
 
