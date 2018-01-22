@@ -42,18 +42,3 @@ angular-run-dev: angular-build
 
 angular-build-prod: angular-build
 	docker run --rm -v $(CURDIR)/client:/usr/src/app $(ANGULAR_IMAGE_NAME):latest bash -c 'npm install && ng build --prod'
-
-
-#############
-#  AWS CLI  #
-#############
-
-# Docker isn't just great for running our apps in the cloud. It's also awesome at "containing" things like the AWS CLI
-
-AWS_CLI_IMAGE_NAME=devlibs-awscli
-
-awscli-build:
-	docker build --force-rm -t $(AWS_CLI_IMAGE_NAME):latest $(CURDIR)/awscli
-
-awscli-run: awscli-build
-	docker run -it -v $(CURDIR)/:/usr/src/app $(AWS_CLI_IMAGE_NAME):latest
